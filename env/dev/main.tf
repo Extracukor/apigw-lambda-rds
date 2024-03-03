@@ -3,7 +3,7 @@ module "vpc" {
   version = "5.5.2"
 }
 
-module "apigateway-v2" {
+/*module "apigateway-v2" {
   source  = "terraform-aws-modules/apigateway-v2/aws"
   version = "3.1.0"
 }
@@ -28,4 +28,4 @@ module "waf" {
   source  = "cloudposse/waf/aws"
   version = "1.4.0"
   # insert the 1 required variable here
-}
+}*/
