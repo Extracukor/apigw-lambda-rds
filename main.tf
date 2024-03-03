@@ -10,19 +10,20 @@ module "vpc" {
   tags = {
     env = "dev"
   }
+}
   
-  resource "aws_subnet" "private" {
+resource "aws_subnet" "private" {
   name              = "private-subnet"
   vpc_id            = module.vpc.vpc_id
   cidr_block        = "10.0.2.0/24"
   availability_zone = "eu-central-1a"
   }
   
-  resource "aws_route_table_association" "private" {
+resource "aws_route_table_association" "private" {
   subnet_id      = aws_subnet.private.id
   route_table_id = module.vpc.private_route_table_ids[0]
   }
-}
+
 
 
 /*module "apigateway-v2" {
