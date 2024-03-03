@@ -8,3 +8,6 @@ terraform --version
 
 mkdir home
 git clone https://github.com/extracukor/apigw-lambda-rds.git
+
+
+rm -r apigw-lambda-rds/
