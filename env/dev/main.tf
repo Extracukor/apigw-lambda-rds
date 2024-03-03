@@ -21,8 +21,8 @@ module "vpc" {
   resource "aws_route_table_association" "private" {
   subnet_id      = aws_subnet.private.id
   route_table_id = module.vpc.private_route_table_ids[0]
+  }
 }
-
 
 
 /*module "apigateway-v2" {
