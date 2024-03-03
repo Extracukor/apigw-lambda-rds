@@ -11,3 +11,7 @@ git clone https://github.com/extracukor/apigw-lambda-rds.git
 
 
 rm -r apigw-lambda-rds/
+
+cd apigw-lambda-rds/
+cd env
+cd dev
