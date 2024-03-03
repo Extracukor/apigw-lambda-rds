@@ -1,7 +1,29 @@
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.5.2"
+
+  name = "ezittaprivatfelho"
+  cidr = "10.0.0.0/16"
+
+  enable_nat_gateway = true
+  enable_private_subnets = true
+  tags = {
+    env = "dev"
+  }
+  
+  resource "aws_subnet" "private" {
+  name              = "private-subnet"
+  vpc_id            = module.vpc.vpc_id
+  cidr_block        = "10.0.2.0/24"
+  availability_zone = "eu-central-1a"
+  }
+  
+  resource "aws_route_table_association" "private" {
+  subnet_id      = aws_subnet.private.id
+  route_table_id = module.vpc.private_route_table_ids[0]
 }
+
+
 
 /*module "apigateway-v2" {
   source  = "terraform-aws-modules/apigateway-v2/aws"
